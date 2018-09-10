@@ -52,8 +52,8 @@ public class Main {
   }
 
   @Bean
-  public JdbcTemplate jdbcTemplate(DataSource hikariDataSource){
-    return new JdbcTemplate(hikariDataSource);
+  public JdbcTemplate jdbcTemplate(DataSource dataSource){
+    return new JdbcTemplate(dataSource);
   }
 
 }
