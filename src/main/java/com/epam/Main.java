@@ -25,10 +25,12 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-//  @Autowired
-//  private DataSource dataSource;
+  @Autowired
+  private DataSource dataSource;
+
   @Autowired
   private JdbcTemplate jdbcTemplate;
+
   private static final String READ_ALL_DEISHES = "SELECT Id, Name FROM salesforce.Dish__c";
 
   public static void main(String[] args) throws Exception {
@@ -41,12 +43,6 @@ public class Main {
     model.addAttribute("dishes", dishes);
     return "index";
   }
-
-/*  public String showTours(@ModelAttribute("model") ModelMap model){
-    List<Tour> tours = tourService.readAll();
-    model.addAttribute("tours", tours);
-    return "deprecated/public/tours";
-  }*/
 
   @Bean
   public DataSource dataSource() throws SQLException {

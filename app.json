@@ -1,5 +1,5 @@
 {
-  "name": "Pizza-Force: order page",
-  "description": "A simple order page for Pizza-Force final project",
-  "addons": []
+  "name": "Pizza-Force: connected order page",
+  "description": "The connected order page for Pizza-Force final project",
+  "addons": [ "heroku-postgresql" ]
 }
