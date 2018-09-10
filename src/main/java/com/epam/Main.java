@@ -23,7 +23,7 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-  private static final String READ_ALL_DISHES = "SELECT Id, Name FROM salesforce.Dish__c";
+  private static final String READ_ALL_DISHES = "SELECT SFID, Name FROM salesforce.Dish__c";
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
