@@ -55,9 +55,9 @@
                 <textarea class="form-control" name="description"></textarea>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <label for="dish">Dish</label>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label for="dish">Dish:</label>
                     <select name="dish" class="form-control">
                         <#list model["dishes"] as dish>
                             <option value="${dish.name} ${dish.id}">
@@ -67,11 +67,12 @@
                     </select>
                 </div>
 
-                <div class="col">
-                    <label for="dish">Dish</label>
+                <div class="col-md-2">
+                    <label for="dish">Quantity:</label>
                     <input name="quantity" type="number" class="form-control" value="1"
                            placeholder="Type in quantity...">
                 </div>
+
             </div>
 
             <input type="submit" class="btn btn-primary" name="submit">
