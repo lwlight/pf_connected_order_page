@@ -100,6 +100,8 @@
     </div>
 
 </div>
+<script type="text/javascript" src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
 <script>
     $(document).on('click', '.btn-add', function(event) {
         event.preventDefault();
