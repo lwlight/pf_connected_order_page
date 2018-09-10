@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @SpringBootApplication
@@ -26,12 +25,9 @@ public class Main {
   private String dbUrl;
 
   @Autowired
-  private DataSource dataSource;
-
-  @Autowired
   private JdbcTemplate jdbcTemplate;
 
-  private static final String READ_ALL_DEISHES = "SELECT Id, Name FROM salesforce.Dish__c";
+  private static final String READ_ALL_DISHES = "SELECT Id, Name FROM salesforce.Dish__c";
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -39,7 +35,7 @@ public class Main {
 
   @RequestMapping("/")
   String index(@ModelAttribute("model") ModelMap model) {
-    List<Dish> dishes = jdbcTemplate.queryForList(READ_ALL_DEISHES, Dish.class);
+    List<Dish> dishes = jdbcTemplate.queryForList(READ_ALL_DISHES, Dish.class);
     model.addAttribute("dishes", dishes);
     return "index";
   }
