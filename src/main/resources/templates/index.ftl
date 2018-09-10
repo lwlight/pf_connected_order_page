@@ -92,6 +92,26 @@
     <div class="col-md-2"></div>
 </div>
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <form>
+                <div class="form-group">
+                    <div class="form-group input-group">
+                        <select name="multiple[]" class="form-control">
+                            <option value="">Пункт 1</option>
+                            <option value="">Пункт 2</option>
+                            <option value="">Пункт 3</option>
+                        </select>
+                        <span class="input-group-btn"><button type="button" class="btn btn-success btn-add">✚</button></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="pf-bottom">
     <div class="container">
         <div class="col-md-2"></div>
@@ -100,11 +120,10 @@
         </div>
         <div class="col-md-2"></div>
     </div>
-
 </div>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
-<script>
+<#--<script>
     $(document).on('click', '.btn-add', function (event) {
         event.preventDefault();
 
@@ -125,6 +144,30 @@
     $(document).on('click', '.btn-remove', function (event) {
         event.preventDefault();
         $(this).closest('.form-row').remove();
+    });
+</script>-->
+
+<script>
+    $(document).on('click', '.btn-add', function(event) {
+        event.preventDefault();
+
+        var field = $(this).closest('.form-group');
+        var field_new = field.clone();
+
+        $(this)
+                .toggleClass('btn-success')
+                .toggleClass('btn-add')
+                .toggleClass('btn-danger')
+                .toggleClass('btn-remove')
+                .html('✖');
+
+        field_new.find('input').val('');
+        field_new.insertAfter(field);
+    });
+
+    $(document).on('click', '.btn-remove', function(event) {
+        event.preventDefault();
+        $(this).closest('.form-group').remove();
     });
 </script>
 </body>
