@@ -41,7 +41,7 @@ public class Main {
   }
 
   @Bean
-  public DataSource dataSource() throws SQLException {
+  public DataSource hikariDataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
       return new HikariDataSource();
     } else {
@@ -52,8 +52,8 @@ public class Main {
   }
 
   @Bean
-  public JdbcTemplate jdbcTemplate(DataSource dataSource){
-    return new JdbcTemplate(dataSource);
+  public JdbcTemplate jdbcTemplate(DataSource hikariDataSource){
+    return new JdbcTemplate(hikariDataSource);
   }
 
 }
