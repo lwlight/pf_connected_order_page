@@ -2,7 +2,6 @@ package com.epam;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +32,7 @@ public class Main {
   @RequestMapping("/")
   String index(@ModelAttribute("model") ModelMap model) throws SQLException {
     JdbcTemplate template = jdbcTemplate(hikariDataSource());
-    List<Dish> dishes = template.queryForList(READ_ALL_DISHES, Dish.class);
+    List<Dish> dishes = template.query(READ_ALL_DISHES, Mapper.DISH_ROW_MAPPER);
     model.addAttribute("dishes", dishes);
     return "index";
   }
