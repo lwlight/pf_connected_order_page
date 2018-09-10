@@ -78,7 +78,8 @@
             </div>
 
             <#--<input type="submit" class="btn btn-primary" name="submit">-->
-            <span class="input-group-btn">
+            <#--<span class="input-group-btn">-->
+            <span class="btn-group-sm">
                 <button class="btn btn-success btn-add" type="button">
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
@@ -100,29 +101,27 @@
 
 </div>
 <script>
-/*    $(function()
-    {
-        $(document).on('click', '.btn-add', function(e)
-        {
-            e.preventDefault();
+    $(document).on('click', '.btn-add', function(event) {
+        event.preventDefault();
 
-            var controlForm = $('.controls form:first'),
-                    currentEntry = $(this).parents('.entry:first'),
-                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+        var field = $(this).closest('.form-row');
+        var field_new = field.clone();
 
-            newEntry.find('input').val('');
-            controlForm.find('.entry:not(:last) .btn-add')
-                    .removeClass('btn-add').addClass('btn-remove')
-                    .removeClass('btn-success').addClass('btn-danger')
-                    .html('<span class="glyphicon glyphicon-minus"></span>');
-        }).on('click', '.btn-remove', function(e)
-        {
-            $(this).parents('.entry:first').remove();
+        $(this)
+                .toggleClass('btn-success')
+                .toggleClass('btn-add')
+                .toggleClass('btn-danger')
+                .toggleClass('btn-remove')
+                .html('✖');
 
-            e.preventDefault();
-            return false;
-        });
-    });*/
+        field_new.find('input').val('');
+        field_new.insertAfter(field);
+    });
+
+    $(document).on('click', '.btn-remove', function(event) {
+        event.preventDefault();
+        $(this).closest('.form-row').remove();
+    });
 </script>
 </body>
 </html>
