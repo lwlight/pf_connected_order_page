@@ -59,11 +59,11 @@
                 <div class="col">
                     <label for="dish">Dish</label>
                     <select name="dish" class="form-control">
-                <#list model["dishes"] as dish>
-                    <option value="${dish.name} ${dish.Id}">
-                        ${dish.name}
-                    </option>
-                </#list>
+                        <#list model["dishes"] as dish>
+                            <option value="${dish.name} ${dish.id}">
+                                ${dish.name}
+                            </option>
+                        </#list>
                     </select>
                 </div>
 
