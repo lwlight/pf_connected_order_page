@@ -19,7 +19,8 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <H2 class="align-center">Order form</H2>
-        <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8"
+              method="POST" autocomplete="off">
 
             <input type=hidden name="orgid" value="00D6F000002T87k">
             <input type=hidden name="retURL" value="https://pizza-force.herokuapp.com/">
@@ -56,7 +57,7 @@
             </div>
 
             <div class="form-row">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <label for="dish">Dish:</label>
                     <select name="dish" class="form-control">
                         <#list model["dishes"] as dish>
@@ -67,30 +68,23 @@
                     </select>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-sm-2">
                     <label for="dish">Quantity:</label>
                     <input name="quantity" type="number" class="form-control" value="1"
                            placeholder="Type in quantity...">
                 </div>
+                <br/>
 
             </div>
 
-            <input type="submit" class="btn btn-primary" name="submit">
+            <#--<input type="submit" class="btn btn-primary" name="submit">-->
+            <span class="input-group-btn">
+                <button class="btn btn-success btn-add" type="button">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
         </form>
     </div>
-
-<#--    <table border="1">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-        </tr>
-        <#list model["dishes"] as dish>
-        <tr>
-            <td><#if dish.id??>${dish.id}<#else>no dish id</#if></td>
-            <td><#if dish.name??>${dish.name}<#else>no dish name</#if></td>
-        </tr>
-        </#list>
-    </table>-->
 
     <div class="col-md-2"></div>
 </div>
@@ -106,7 +100,29 @@
 
 </div>
 <script>
+/*    $(function()
+    {
+        $(document).on('click', '.btn-add', function(e)
+        {
+            e.preventDefault();
 
+            var controlForm = $('.controls form:first'),
+                    currentEntry = $(this).parents('.entry:first'),
+                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+            newEntry.find('input').val('');
+            controlForm.find('.entry:not(:last) .btn-add')
+                    .removeClass('btn-add').addClass('btn-remove')
+                    .removeClass('btn-success').addClass('btn-danger')
+                    .html('<span class="glyphicon glyphicon-minus"></span>');
+        }).on('click', '.btn-remove', function(e)
+        {
+            $(this).parents('.entry:first').remove();
+
+            e.preventDefault();
+            return false;
+        });
+    });*/
 </script>
 </body>
 </html>
