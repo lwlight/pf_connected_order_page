@@ -55,11 +55,30 @@
                 <textarea class="form-control" name="description"></textarea>
             </div>
 
+            <div class="row">
+                <div class="col">
+                    <label for="dish">Dish</label>
+                    <select name="dish" class="form-control">
+                <#list model["dishes"] as dish>
+                    <option value="${dish.name} ${dish.Id}">
+                        ${dish.name}
+                    </option>
+                </#list>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label for="dish">Dish</label>
+                    <input name="quantity" type="number" class="form-control" value="1"
+                           placeholder="Type in quantity...">
+                </div>
+            </div>
+
             <input type="submit" class="btn btn-primary" name="submit">
         </form>
     </div>
 
-    <table border="1">
+<#--    <table border="1">
         <tr>
             <th>Id</th>
             <th>Name</th>
@@ -70,7 +89,7 @@
             <td><#if dish.name??>${dish.name}<#else>no dish name</#if></td>
         </tr>
         </#list>
-    </table>
+    </table>-->
 
     <div class="col-md-2"></div>
 </div>
@@ -85,5 +104,8 @@
     </div>
 
 </div>
+<script>
+
+</script>
 </body>
 </html>
