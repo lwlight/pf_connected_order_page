@@ -74,7 +74,7 @@
                            placeholder="Type in quantity...">
                 </div>
 
-                <span class="input-group-btn">
+                <span class="btn-group-sm">
                 <button class="btn btn-success btn-add" type="button">
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
@@ -93,7 +93,7 @@
 </div>
 
 
-<div class="container">
+<#--<div class="container">
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6">
             <form>
@@ -110,7 +110,7 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->
 
 <div class="pf-bottom">
     <div class="container">
@@ -123,7 +123,7 @@
 </div>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
-<#--<script>
+<script>
     $(document).on('click', '.btn-add', function (event) {
         event.preventDefault();
 
@@ -145,9 +145,9 @@
         event.preventDefault();
         $(this).closest('.form-row').remove();
     });
-</script>-->
+</script>
 
-<script>
+<#--<script>
     $(document).on('click', '.btn-add', function(event) {
         event.preventDefault();
 
@@ -169,6 +169,6 @@
         event.preventDefault();
         $(this).closest('.form-group').remove();
     });
-</script>
+</script>-->
 </body>
 </html>
