@@ -24,9 +24,6 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
-  @Autowired
-  private JdbcTemplate jdbcTemplate;
-
   private static final String READ_ALL_DISHES = "SELECT Id, Name FROM salesforce.Dish__c";
 
   public static void main(String[] args) throws Exception {
@@ -34,8 +31,9 @@ public class Main {
   }
 
   @RequestMapping("/")
-  String index(@ModelAttribute("model") ModelMap model) {
-    List<Dish> dishes = jdbcTemplate.queryForList(READ_ALL_DISHES, Dish.class);
+  String index(@ModelAttribute("model") ModelMap model) throws SQLException {
+    JdbcTemplate template = jdbcTemplate(hikariDataSource());
+    List<Dish> dishes = template.queryForList(READ_ALL_DISHES, Dish.class);
     model.addAttribute("dishes", dishes);
     return "index";
   }
