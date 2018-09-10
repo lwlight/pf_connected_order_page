@@ -73,17 +73,19 @@
                     <input name="quantity" type="number" class="form-control" value="1"
                            placeholder="Type in quantity...">
                 </div>
+
+                <span class="input-group-btn">
+                <button class="btn btn-success btn-add" type="button">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                </span>
                 <br/>
 
             </div>
 
-            <#--<input type="submit" class="btn btn-primary" name="submit">-->
-            <#--<span class="input-group-btn">-->
-            <span class="btn-group-sm">
-                <button class="btn btn-success btn-add" type="button">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
-            </span>
+        <input type="submit" class="btn btn-primary" name="submit">
+        <#--<span class="input-group-btn">-->
+
         </form>
     </div>
 
@@ -103,7 +105,7 @@
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
 <script>
-    $(document).on('click', '.btn-add', function(event) {
+    $(document).on('click', '.btn-add', function (event) {
         event.preventDefault();
 
         var field = $(this).closest('.form-row');
@@ -120,7 +122,7 @@
         field_new.insertAfter(field);
     });
 
-    $(document).on('click', '.btn-remove', function(event) {
+    $(document).on('click', '.btn-remove', function (event) {
         event.preventDefault();
         $(this).closest('.form-row').remove();
     });
