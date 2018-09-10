@@ -55,16 +55,15 @@
                 <textarea class="form-control" name="description"></textarea>
             </div>
 
-
-
             <input type="submit" class="btn btn-primary" name="submit">
         </form>
     </div>
+
     <table border="1">
-        <tr>
+        <th>
             <th>Id</th>
             <th>Name</th>
-        </tr>
+        </th>
         <#list model["dishes"] as dish>
         <tr>
             <td><#if dish.id??>${dish.id}<#else>no dish id</#if></td>
@@ -72,6 +71,7 @@
         </tr>
         </#list>
     </table>
+    
     <div class="col-md-2"></div>
 </div>
 
