@@ -60,10 +60,10 @@
     </div>
 
     <table border="1">
-        <th>
+        <tr>
             <th>Id</th>
             <th>Name</th>
-        </th>
+        </tr>
         <#list model["dishes"] as dish>
         <tr>
             <td><#if dish.id??>${dish.id}<#else>no dish id</#if></td>
