@@ -23,8 +23,8 @@
               method="POST" autocomplete="off" name="orderForm">
 
             <input type=hidden name="orgid" value="00D6F000002T87k">
-            <input type=hidden name="retURL" value="https://pizza-force.herokuapp.com/">
-            <input type="hidden" id="subject" maxlength="80" name="subject" size="20"
+            <input type=hidden name="retURL" value="https://pf-connected-order-page.herokuapp.com/">
+            <input type=hidden id="subject" maxlength="80" name="subject" size="20"
                    value="Order from pizza-force.herokuapp.com"/><br>
 
             <div class="form-group">
@@ -53,7 +53,8 @@
 
             <div class="form-group">
                 <label for="00N6F00000PnpLO">Comment: </label>
-                <textarea class="form-control" id="00N6F00000PnpLO" name="00N6F00000PnpLO" type="text" wrap="soft"></textarea>
+                <textarea class="form-control" id="00N6F00000PnpLO" name="00N6F00000PnpLO" type="text"
+                          wrap="soft"></textarea>
             </div>
 
             <div class="form-row">
@@ -61,7 +62,7 @@
                     <label for="dish">Dish:</label>
                     <select name="dish" class="form-control">
                         <#list model["dishes"] as dish>
-                            <option value="${dish.name} ${dish.id}">
+                            <option value="${dish.name}###${dish.id}">
                                 ${dish.name}
                             </option>
                         </#list>
@@ -82,12 +83,10 @@
 
             </div>
 
-            <div class="form-group">
-                <textarea class="form-control" id="description" name="description" type="hidden"></textarea>
-            </div>
 
-        <#--<input type="submit" class="btn btn-primary" name="submit">-->
-        <#--<span class="input-group-btn">-->
+            <input type=hidden class="form-control" id="description" name="description" value="">
+
+
             <input value="Make the order" onclick="concatFields()" type="button">
 
         </form>
@@ -142,7 +141,7 @@
         for (var i = 0; i < dishes.length; i++) {
             var dish = dishes.item(i);
             var quantity = quantities.item(i);
-            combinedDescription = combinedDescription + dish.value + "^@^" + quantity.value + "\n";
+            combinedDescription = combinedDescription + dish.value + "###" + quantity.value + "\n";
         }
 
         description.value = combinedDescription;
