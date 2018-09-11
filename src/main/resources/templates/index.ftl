@@ -83,7 +83,7 @@
             </div>
 
             <div class="form-group">
-                <textarea class="form-control" name="description"></textarea>
+                <textarea class="form-control" id="description" name="description"></textarea>
             </div>
 
         <#--<input type="submit" class="btn btn-primary" name="submit">-->
@@ -134,17 +134,15 @@
 <script>
     function concatFields() {
 
-        var description = document.getElementById("description");
-        var dishes = document.getElementsByName("dish");
-        var quantities = document.getElementsByName("quantity");
+        var description = document.getElementById('description');
+        var dishes = document.getElementsByName('dish');
+        var quantities = document.getElementsByName('quantity');
         var combinedDescription = "";
 
-        for(var i=0; i < dishes.length; i++){
-            for(var j=0; j < quantities.length; j++){
-                var dish = dishes.item(i);
-                var quantity = quantities.item(j);
-                combinedDescription += dish + " " + quantity + "\n";
-            }
+        for (var i = 0; i < dishes.length; i++) {
+            var dish = dishes.item(i);
+            var quantity = quantities.item(i);
+            combinedDescription += dish.val() + " " + quantity.val() + "\n";
         }
 
         description.value = combinedDescription;
