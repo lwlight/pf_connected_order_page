@@ -58,7 +58,7 @@
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
+                <div class="col-6">
                     <label for="dish">Dish:</label>
                     <select name="dish" class="form-control">
                         <#list model["dishes"] as dish>
@@ -69,21 +69,21 @@
                     </select>
                 </div>
 
-                <div class="col-sm-2">
+                <div class="col">
                     <label for="quantity">Quantity:</label>
                     <input name="quantity" type="number" class="form-control">
                 </div>
 
-                <span class="btn-group-sm">
+                <div class="col">
+                <#--<span class="btn-group-sm">-->
                 <button class="btn btn-success btn-add" type="button">
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
-                </span>
-                <br/>
+                <#--</span>-->
+                </div>
 
             </div>
-
-
+            
             <input type=hidden class="form-control" id="description" name="description" value="">
 
             <div class="form-group">
