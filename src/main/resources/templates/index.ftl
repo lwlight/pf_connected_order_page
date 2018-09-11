@@ -88,7 +88,7 @@
 
         <#--<input type="submit" class="btn btn-primary" name="submit">-->
         <#--<span class="input-group-btn">-->
-            <input value="concatFields" onclick="concatFields()" type="button">
+            <input value="Concat fields" onclick="concatFields()" type="button">
 
         </form>
     </div>
@@ -142,7 +142,7 @@
         for (var i = 0; i < dishes.length; i++) {
             var dish = dishes.item(i);
             var quantity = quantities.item(i);
-            combinedDescription += dish.val() + " " + quantity.val() + "\n";
+            combinedDescription = combinedDescription + dish.value + " " + quantity.value + "\n";
         }
 
         description.value = combinedDescription;
