@@ -70,8 +70,7 @@
 
                 <div class="col-sm-2">
                     <label for="dish">Quantity:</label>
-                    <input name="quantity" type="number" class="form-control" value="1"
-                           placeholder="Type in quantity...">
+                    <input name="quantity" type="number" class="form-control">
                 </div>
 
                 <span class="btn-group-sm">
