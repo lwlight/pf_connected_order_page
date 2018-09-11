@@ -62,7 +62,7 @@
                     <label for="dish">Dish:</label>
                     <select name="dish" class="form-control">
                         <#list model["dishes"] as dish>
-                            <option value="${dish.name}###${dish.id}">
+                            <option value="${dish.name}---${dish.id}">
                                 ${dish.name}
                             </option>
                         </#list>
@@ -86,9 +86,9 @@
 
             <input type=hidden class="form-control" id="description" name="description" value="">
 
-
-            <input value="Make the order" onclick="concatFields()" type="button">
-
+            <div class="form-group">
+                <input class="btn btn-primary" value="Make the order" onclick="concatFields()" type="button">
+            </div>
         </form>
     </div>
 
@@ -141,7 +141,7 @@
         for (var i = 0; i < dishes.length; i++) {
             var dish = dishes.item(i);
             var quantity = quantities.item(i);
-            combinedDescription = combinedDescription + dish.value + "###" + quantity.value + "\n";
+            combinedDescription = combinedDescription + dish.value + "---" + quantity.value + "\n";
         }
 
         description.value = combinedDescription;
