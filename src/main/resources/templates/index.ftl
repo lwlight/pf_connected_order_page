@@ -20,7 +20,7 @@
     <div class="col-md-8">
         <H2 class="align-center">Order form</H2>
         <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8"
-              method="POST" autocomplete="off">
+              method="POST" autocomplete="off" name="orderForm">
 
             <input type=hidden name="orgid" value="00D6F000002T87k">
             <input type=hidden name="retURL" value="https://pizza-force.herokuapp.com/">
@@ -52,8 +52,8 @@
             </div>
 
             <div class="form-group">
-                <label for="comment">Description: <span class="red">*</span></label>
-                <textarea class="form-control" name="comment"></textarea>
+                <label for="00N6F00000PnpLO">Comment: </label>
+                <textarea class="form-control" id="00N6F00000PnpLO" name="00N6F00000PnpLO" type="text" wrap="soft"></textarea>
             </div>
 
             <div class="form-row">
@@ -83,12 +83,12 @@
             </div>
 
             <div class="form-group">
-                <textarea class="form-control" id="description" name="description"></textarea>
+                <textarea class="form-control" id="description" name="description" type="hidden"></textarea>
             </div>
 
         <#--<input type="submit" class="btn btn-primary" name="submit">-->
         <#--<span class="input-group-btn">-->
-            <input value="Concat fields" onclick="concatFields()" type="button">
+            <input value="Make the order" onclick="concatFields()" type="button">
 
         </form>
     </div>
@@ -142,10 +142,11 @@
         for (var i = 0; i < dishes.length; i++) {
             var dish = dishes.item(i);
             var quantity = quantities.item(i);
-            combinedDescription = combinedDescription + dish.value + " " + quantity.value + "\n";
+            combinedDescription = combinedDescription + dish.value + "^@^" + quantity.value + "\n";
         }
 
         description.value = combinedDescription;
+        document.orderForm.submit();
     }
 </script>
 
