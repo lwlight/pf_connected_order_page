@@ -137,7 +137,7 @@
         var description = document.getElementById("description");
         var dishes = document.getElementsByName("dish");
         var quantities = document.getElementsByName("quantity");
-        var combinedDescription;
+        var combinedDescription = "";
 
         for(var i=0; i < dishes.length; i++){
             for(var j=0; j < quantities.length; j++){
