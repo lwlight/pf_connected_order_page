@@ -52,8 +52,8 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Description: <span class="red">*</span></label>
-                <textarea class="form-control" name="description"></textarea>
+                <label for="comment">Description: <span class="red">*</span></label>
+                <textarea class="form-control" name="comment"></textarea>
             </div>
 
             <div class="form-row">
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="col-sm-2">
-                    <label for="dish">Quantity:</label>
+                    <label for="quantity">Quantity:</label>
                     <input name="quantity" type="number" class="form-control">
                 </div>
 
@@ -82,34 +82,19 @@
 
             </div>
 
-        <input type="submit" class="btn btn-primary" name="submit">
+            <div class="form-group">
+                <textarea class="form-control" name="description"></textarea>
+            </div>
+
+        <#--<input type="submit" class="btn btn-primary" name="submit">-->
         <#--<span class="input-group-btn">-->
+            <input value="concatFields" onclick="concatFields()" type="button">
 
         </form>
     </div>
 
     <div class="col-md-2"></div>
 </div>
-
-
-<#--<div class="container">
-    <div class="row">
-        <div class="col-xs-offset-3 col-xs-6">
-            <form>
-                <div class="form-group">
-                    <div class="form-group input-group">
-                        <select name="multiple[]" class="form-control">
-                            <option value="">Пункт 1</option>
-                            <option value="">Пункт 2</option>
-                            <option value="">Пункт 3</option>
-                        </select>
-                        <span class="input-group-btn"><button type="button" class="btn btn-success btn-add">✚</button></span>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>-->
 
 <div class="pf-bottom">
     <div class="container">
@@ -146,28 +131,25 @@
     });
 </script>
 
-<#--<script>
-    $(document).on('click', '.btn-add', function(event) {
-        event.preventDefault();
+<script>
+    function concatFields() {
 
-        var field = $(this).closest('.form-group');
-        var field_new = field.clone();
+        var description = document.getElementById("description");
+        var dishes = document.getElementsByName("dish");
+        var quantities = document.getElementsByName("quantity");
+        var combinedDescription;
 
-        $(this)
-                .toggleClass('btn-success')
-                .toggleClass('btn-add')
-                .toggleClass('btn-danger')
-                .toggleClass('btn-remove')
-                .html('✖');
+        for(var i=0; i < dishes.length; i++){
+            for(var j=0; j < quantities.length; j++){
+                var dish = dishes.item(i);
+                var quantity = quantities.item(j);
+                combinedDescription += dish + " " + quantity + "\n";
+            }
+        }
 
-        field_new.find('input').val('');
-        field_new.insertAfter(field);
-    });
+        description.value = combinedDescription;
+    }
+</script>
 
-    $(document).on('click', '.btn-remove', function(event) {
-        event.preventDefault();
-        $(this).closest('.form-group').remove();
-    });
-</script>-->
 </body>
 </html>
