@@ -22,7 +22,7 @@ public class Main {
 
   private static final String MESSAGE_ATTRIBUTE_NAME = "message";
   private static final String MESSAGE = "Your order was successfully sent";
-  
+
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
@@ -34,7 +34,6 @@ public class Main {
 
   @RequestMapping("/")
   String index(@ModelAttribute("model") ModelMap model) throws SQLException {
-    removeMessage(model);
     JdbcTemplate template = jdbcTemplate(hikariDataSource());
     List<Dish> dishes = template.query(READ_ALL_DISHES, Mapper.DISH_ROW_MAPPER);
     model.addAttribute("dishes", dishes);
@@ -49,8 +48,8 @@ public class Main {
   }
 
   private void removeMessage(@ModelAttribute("model") ModelMap model) {
-    if(model.containsAttribute("message")){
-      model.remove("message");
+    if(model.containsAttribute(MESSAGE_ATTRIBUTE_NAME)){
+      model.remove(MESSAGE_ATTRIBUTE_NAME);
     }
   }
 
