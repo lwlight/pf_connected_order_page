@@ -86,6 +86,8 @@
 
             <input type=hidden class="form-control" id="description" name="description" value="">
 
+            <br>
+            <br>
             <div class="form-group">
                 <input class="btn btn-primary" value="Make the order" onclick="concatFields()" type="button">
             </div>
