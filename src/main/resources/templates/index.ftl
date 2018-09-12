@@ -14,16 +14,19 @@
     </div>
 </div>
 <div class="container">
-    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <#--<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">-->
 
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <H2 class="align-center">Order form</H2>
+        <#if model["message"]??>
+            <div class="alert-success" role="alert" align="center">${model["message"]}</div>
+        </#if>
         <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8"
               method="POST" autocomplete="off" name="orderForm">
 
             <input type=hidden name="orgid" value="00D6F000002T87k">
-            <input type=hidden name="retURL" value="https://pf-connected-order-page.herokuapp.com/">
+            <input type=hidden name="retURL" value="https://pf-connected-order-page.herokuapp.com/thanks">
             <input type=hidden id="subject" maxlength="80" name="subject" size="20"
                    value="Order from pizza-force.herokuapp.com"/><br>
 

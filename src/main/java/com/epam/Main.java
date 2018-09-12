@@ -37,6 +37,13 @@ public class Main {
     return "index";
   }
 
+  @RequestMapping("/thanks")
+  String thanks(@ModelAttribute("model") ModelMap model) throws SQLException {
+
+    model.addAttribute("message", "Your order was successfully sent");
+    return index(model);
+  }
+
   @Bean
   public DataSource hikariDataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
