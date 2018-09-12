@@ -83,7 +83,7 @@
                 </div>
 
             </div>
-            
+
             <input type=hidden class="form-control" id="description" name="description" value="">
 
             <div class="form-group">
@@ -106,48 +106,7 @@
 </div>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
-<script>
-    $(document).on('click', '.btn-add', function (event) {
-        event.preventDefault();
-
-        var field = $(this).closest('.form-row');
-        var field_new = field.clone();
-
-        $(this)
-                .toggleClass('btn-success')
-                .toggleClass('btn-add')
-                .toggleClass('btn-danger')
-                .toggleClass('btn-remove')
-                .html('✖');
-
-        field_new.find('input').val('');
-        field_new.insertAfter(field);
-    });
-
-    $(document).on('click', '.btn-remove', function (event) {
-        event.preventDefault();
-        $(this).closest('.form-row').remove();
-    });
-</script>
-
-<script>
-    function concatFields() {
-
-        var description = document.getElementById('description');
-        var dishes = document.getElementsByName('dish');
-        var quantities = document.getElementsByName('quantity');
-        var combinedDescription = "";
-
-        for (var i = 0; i < dishes.length; i++) {
-            var dish = dishes.item(i);
-            var quantity = quantities.item(i);
-            combinedDescription = combinedDescription + dish.value + "---" + quantity.value + "\n";
-        }
-
-        description.value = combinedDescription;
-        document.orderForm.submit();
-    }
-</script>
+<script type="text/javascript" src="/js/order-script.js"></script>
 
 </body>
 </html>
